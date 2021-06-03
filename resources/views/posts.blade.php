@@ -1,10 +1,9 @@
 <x-layout>
 
     @foreach ($posts as  $post)
-        {{--         @dd($loop) --}}
-        <article class="{{ $loop->even ? 'foobar' : '' }}">
+        <article>
             <h1>
-                <a href="/posts/{{ $post->id }}">
+                <a href="/posts/{{ $post->slug }}">
                     {!! $post->title !!}
                 </a>
             </h1>
