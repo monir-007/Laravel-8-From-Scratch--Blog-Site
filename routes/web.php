@@ -32,11 +32,15 @@ Route::get('posts/{post:slug}', function (Post $post) {
 Route::get('categories/{category:slug}', function (Category $category) {
     return view('posts', [
         'posts' => $category->posts,
+        'categories'=>Category::all(),
+        'currentCategory'=>$category,
+
     ]);
 });
 
 Route::get('authors/{author:username}', function (User $author) {
     return view('posts', [
         'posts' => $author->posts,
+        'categories'=>Category::all(),
     ]);
 });
