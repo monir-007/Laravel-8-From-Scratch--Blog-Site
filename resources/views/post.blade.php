@@ -12,6 +12,7 @@
                     <div class="flex items-center lg:justify-center text-sm mt-4">
                         <img src="/images/lary-avatar.svg" alt="Lary avatar">
                         <div class="ml-3 text-left">
+
                             <h5 class="font-bold">{{ $post->author->name }}</h5>
 
                         </div>
@@ -31,14 +32,11 @@
                                     </path>
                                 </g>
                             </svg>
-
                             Back to Posts
                         </a>
 
                         <div class="space-x-2">
                             <x-category-button :category="$post->category"/>
-
-
                         </div>
                     </div>
 
@@ -47,7 +45,7 @@
                     </h1>
 
                     <div class="space-y-4 lg:text-lg leading-loose">
-                        {{ $post->body }}
+                        {!! $post->body !!}
                     </div>
                 </div>
             </article>
