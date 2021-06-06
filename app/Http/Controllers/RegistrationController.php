@@ -20,7 +20,10 @@ class RegistrationController extends Controller
             'email' => 'required|email',
             'password' => 'required|min:8'
         ]);
+
+        $attributes['password'] = bcrypt($attributes['password']);
         User::create($attributes);
+
         return redirect('/');
     }
 }
