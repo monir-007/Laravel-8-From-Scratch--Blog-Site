@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
 {
@@ -21,7 +20,6 @@ class RegistrationController extends Controller
             'password' => 'required|min:8'
         ]);
 
-        $attributes['password'] = bcrypt($attributes['password']);
         User::create($attributes);
 
         return redirect('/');
