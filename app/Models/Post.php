@@ -21,9 +21,15 @@ class Post extends Model
                     ->where('title', 'like', '%' . $search . '%')
                     ->orWhere('body', 'like', '%' . $search . '%');
         });
+
         $query->when($filters['category'] ?? false, function ($qb, $category){
             $qb->whereHas('category', fn($query)=>
                 $query->where('slug', $category));
+        });
+
+        $query->when($filters['author'] ?? false, function ($qb, $author){
+            $qb->whereHas('author', fn($query)=>
+                $query->where('username', $author));
         });
 
     }
