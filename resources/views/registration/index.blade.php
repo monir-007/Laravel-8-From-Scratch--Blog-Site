@@ -1,7 +1,6 @@
 <x-layout>
     <section class="px-6 py-8">
         <main class="max-w-lg mx-auto mt-5 bg-gray-100 border border-gray-200 p-10 rounded-xl">
-
             <style>
                 .-z-1 {
                     z-index: -1;
@@ -36,12 +35,10 @@
                 }
             </style>
 
-
             <div class="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
                 <h1 class="text-2xl font-bold mb-8">Registration</h1>
                 <form method="POST" action="/registration" novalidate>
                     @csrf
-
                     <div class="relative z-0 w-full mb-5">
                         <input
                             type="text"
@@ -53,7 +50,11 @@
                         />
                         <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter
                             name</label>
+                        @error('name')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
+
                     <div class="relative z-0 w-full mb-5">
                         <input
                             type="text"
@@ -65,6 +66,9 @@
                         />
                         <label for="username" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter
                             Username</label>
+                        @error('username')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="relative z-0 w-full mb-5">
@@ -78,6 +82,9 @@
                         />
                         <label for="email" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter email
                             address</label>
+                        @error('email')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="relative z-0 w-full mb-5">
@@ -90,6 +97,9 @@
                         />
                         <label for="password" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter
                             password</label>
+                        @error('password')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <button
@@ -98,39 +108,8 @@
                     >
                         Sign In
                     </button>
-                    @if($errors->any())
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li class="text-red-500 text-xs">{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
-
                 </form>
             </div>
-
-
-            {{--            <script>--}}
-            {{--                'use strict'--}}
-
-            {{--                document.getElementById('button').addEventListener('click', toggleError)--}}
-            {{--                const errMessages = document.querySelectorAll('#error')--}}
-
-            {{--                function toggleError() {--}}
-            {{--                    errMessages.forEach((el) => {--}}
-            {{--                        el.classList.toggle('hidden')--}}
-            {{--                    })--}}
-
-            {{--                    const allBorders = document.querySelectorAll('.border-gray-200')--}}
-            {{--                    const allTexts = document.querySelectorAll('.text-gray-500')--}}
-            {{--                    allBorders.forEach((el) => {--}}
-            {{--                        el.classList.toggle('border-red-600')--}}
-            {{--                    })--}}
-            {{--                    allTexts.forEach((el) => {--}}
-            {{--                        el.classList.toggle('text-red-600')--}}
-            {{--                    })--}}
-            {{--                }--}}
-            {{--            </script>--}}
         </main>
     </section>
 </x-layout>
